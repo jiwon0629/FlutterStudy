@@ -79,19 +79,13 @@ children:[
 
 //elevation : 앱바와 위젯 사이의 높이 지정으로 그림자를 의미한다.
 ```
- ![스크린샷 2023-08-20 154605](https://github.com/jiwon0629/FlutterStudy/assets/149983498/7fb55658-ba5c-422b-be20-855de3b41210)
+[ 결과 ]
+ ![스크린샷 2023-08-20 154605](https://github.com/jiwon0629/FlutterStudy/assets/149983498/7fb55658-ba5c-422b-be20-855de3b41210)  
 
 
- 
+## 기초 위젯  
 
-결과
-
-
-
- 
-
-기초 위젯
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -166,11 +160,12 @@ class MyHomePage extends StatelessWidget{
 
 }
 
-}
+}  
+```  
 
- 
+[ 결과 ]  
+![스크린샷 2023-08-20 154915](https://github.com/jiwon0629/FlutterStudy/assets/149983498/a7fb30df-e709-45b1-a77b-c2b13a74d619)
 
-결과
 
 
 
