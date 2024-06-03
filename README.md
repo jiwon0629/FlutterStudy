@@ -1242,6 +1242,7 @@ class SecondPage extends StatelessWidget{
 }
 
 }
+```
 
 [ 화면 이동 전 결과 ]  
 
