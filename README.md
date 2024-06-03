@@ -1244,10 +1244,12 @@ class SecondPage extends StatelessWidget{
 }
 
 [ 화면 이동 전 결과 ]  
-![스크린샷 2023-08-22 214406](https://github.com/jiwon0629/FlutterStudy/assets/149983498/7edfda76-1d19-4cf8-beef-6024f322dff5)  
+![스크린샷 2023-08-22 214406](https://github.com/jiwon0629/FlutterStudy/assets/149983498/da44bee9-7af3-4752-94b3-639a834eba37)  
+
 
 [ 화면 이동 후 결과 ]
-![스크린샷 2023-08-22 214425](https://github.com/jiwon0629/FlutterStudy/assets/149983498/9a7717d4-404d-4763-a23e-83aebeec7790)  
+ ![스크린샷 2023-08-22 214425](https://github.com/jiwon0629/FlutterStudy/assets/149983498/03a1d9b9-1afc-4539-8529-d8585feb6631)  
+
 
 Map 자료구조  
 
