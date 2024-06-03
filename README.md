@@ -843,20 +843,9 @@ class MyHomePage extends StatelessWidget{
 ```
 
 [ 결과 ]  
-![스크린샷 2023-08-21 160744](https://github.com/jiwon0629/FlutterStudy/assets/149983498/b046ae87-7885-47cb-9320-f027d5b75d85)
-
-
-
+![스크린샷 2023-08-21 160744](https://github.com/jiwon0629/FlutterStudy/assets/149983498/b046ae87-7885-47cb-9320-f027d5b75d85)  
  
-
- 
-
- 
-
- 
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -950,39 +939,12 @@ class MySnackBar extends StatelessWidget{
 }
 
 }
+```  
 
- 
+[ 결과 ]  
+![스크린샷 2023-08-21 215945](https://github.com/jiwon0629/FlutterStudy/assets/149983498/6f64b288-af18-44f1-b049-1f55a5c4f25a)  
 
- 
-
-결과
-
-
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -1050,65 +1012,12 @@ class MyPage extends StatelessWidget{
 //margin : 컨테이너가 스크린의 가장자리에서 일정 간격을 가지게 하기위해서 사용
 
 //padding : 컨테이너가 포함하고 있는 요소가 가장자리에서 일정 간격을 가지게 하기위해서 사용
+```  
 
- 
+[ 결과 ]  
+![스크린샷 2023-08-21 234217](https://github.com/jiwon0629/FlutterStudy/assets/149983498/093764ea-3df9-4494-b0a7-fe7fb4a15b6b)  
 
- 
-
- 
-
-결과
-
-
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -1210,23 +1119,18 @@ class MyPage extends StatelessWidget{
 //mainAxisSize : 세로출 공간 담당
 
 //crossAxisAlignment : 가로축 위치 담당
+```  
 
- 
-
-결과
-
+[ 결과 ]  
+![스크린샷 2023-08-22 001055](https://github.com/jiwon0629/FlutterStudy/assets/149983498/2836b155-ba0c-4d64-8dbc-5e3ff28de650)  
 
 
- 
 
- 
+화면 이동은 스택구조와 같다. 첫 화면에서 다른 화면으로 push처럼 위로 쌓여져 올라간다.  
 
- 
+pop도 다른 화면이 빠져나가서 첫 화면이 나타난다.  
 
-화면 이동은 스택구조와 같다. 첫 화면에서 다른 화면으로 push처럼 위로 쌓여져 올라간다.
-
-pop도 다른 화면이 빠져나가서 첫 화면이 나타난다.
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -1339,58 +1243,35 @@ class SecondPage extends StatelessWidget{
 
 }
 
-화면 이동 전 결과
+[ 화면 이동 전 결과 ]  
+![스크린샷 2023-08-22 214406](https://github.com/jiwon0629/FlutterStudy/assets/149983498/7edfda76-1d19-4cf8-beef-6024f322dff5)  
+
+[ 화면 이동 후 결과 ]
+![스크린샷 2023-08-22 214425](https://github.com/jiwon0629/FlutterStudy/assets/149983498/9a7717d4-404d-4763-a23e-83aebeec7790)  
+
+Map 자료구조  
+
+Key : Value  
+
+String : Widget builder  
 
  
 
+Interpolation : 보간법  
 
-
- 
-
-화면 이동 후 결과
-
-
+ex) 당신의 점수는 $score 이며 당신의 레벨은 $level입니다.  
 
  
 
-Map 자료구조
+Collection : 데이터들을 모아서 가지고 있는 자료구조  
 
-Key : Value
-
-String : Widget builder
+Generic : Collection이 가지고 있는 데이터들의 데이터 타입을 지정  
 
  
-
-Interpolation : 보간법
-
-ex) 당신의 점수는 $score 이며 당신의 레벨은 $level입니다.
-
- 
-
-Collection : 데이터들을 모아서 가지고 있는 자료구조
-
-Generic : Collection이 가지고 있는 데이터들의 데이터 타입을 지정
-
  
 
  
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(const MyApp());
@@ -1610,27 +1491,14 @@ class ThirdPage extends StatelessWidget{
 }
 
 }
+```   
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-결과
+[ 결과 ]
+![스크린샷 2023-08-28 233433](https://github.com/jiwon0629/FlutterStudy/assets/149983498/0388efd6-2f4d-4dbf-8c7e-5aea8f444e4d)
+![스크린샷 2023-08-28 233635](https://github.com/jiwon0629/FlutterStudy/assets/149983498/ed7f7624-b3d1-4954-81f9-250b08a88daf)  
 
 
-
- 
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(const MyApp());
@@ -1894,91 +1762,74 @@ class _ListViewPageState extends State<ListViewPage> {
 }
 
 }
+```  
+
+[ 결과 ]
+![스크린샷 2023-09-03 221355](https://github.com/jiwon0629/FlutterStudy/assets/149983498/750a22da-8106-4abe-82c7-69b10ea63008)  
+
+
+## ListView VS ListView.builder  
+
+공통점  
+
+- 스크롤이 가능한 배열형 위젯  
+
+2. 차이점  
+
+ListView : 리스트뷰안에 모든 차일드를 생성해서 보여줌  
+
+Listview.builder : 그때그때 필요한만큼만 데이터를 저장소나 서버에서 불러옴  
+
+
+## State  
+
+State란 UI가 변경되도록 영향을 미치는 데이터이다.  
+
+App 수준과 Widget 수준의 데이터가 있다.  
 
  
 
+## Stateless Widget  
+
+Stateless widget : State가 변하지 않는 위젯  
  
 
-결과
+## Widget tree and Element tree  
 
+Widget tree는 빌드 메소드가 호출될 때마다 새롭게 rebuild된다.  
 
+Reload는 어떤 프레임을 그대로 둔 채 부수적인 요소들만 바꾸는 것  
 
- 
+Rebuild는 새로 만드는 것  
 
-ListView VS ListView.builder
-
-공통점
-
-- 스크롤이 가능한 배열형 위젯
-
-2. 차이점
-
-ListView : 리스트뷰안에 모든 차일드를 생성해서 보여줌
-
-Listview.builder : 그때그때 필요한만큼만 데이터를 저장소나 서버에서 불러옴
+Stateless 위젯은 rebuild만을 통해서 State 적용 가능  
 
  
 
-약간 매운맛===================================================================
+## Extend(상속)  
+
+상속을 사용하는 이유는 자원을 재사용하고 자원을 변형하거나 추가하는 역할  
+
+부모 클래스가 갖고 있는 속성기능들을 상속받은 자식클래스는 추가없이 부모 클래스의 모든 것을 그대로 사용가능하고 원하는대로 변형할 수 있다.  
 
  
 
-State
-
-State란 UI가 변경되도록 영향을 미치는 데이터이다.
-
-App 수준과 Widget 수준의 데이터가 있다.
+부모 클래스의 생성자가 먼저 호출되고 자식 클래스의 생성자가 다음에 호출된다.  
 
  
 
-Stateless Widget
-
-Stateless widget : State가 변하지 않는 위젯
+Stateful Widget은 내부에 State라는 또 다른 클래스를 갖고 있다.  
 
  
 
- 
+Stateful Widget이 rebuild되는 경우  
+
+Stateless Widget처럼 Child 위젯의 생성자를 통해서 데이터가 전달 때  
+
+Internal state가 바뀔 때  
 
  
-
- 
-
-Widget tree and Element tree
-
-Widget tree는 빌드 메소드가 호출될 때마다 새롭게 rebuild된다.
-
-Reload는 어떤 프레임을 그대로 둔 채 부수적인 요소들만 바꾸는 것
-
-Rebuild는 새로 만드는 것
-
-Stateless 위젯은 rebuild만을 통해서 State 적용 가능
-
- 
-
-Extend(상속)
-
-상속을 사용하는 이유는 자원을 재사용하고 자원을 변형하거나 추가하는 역할
-
-부모 클래스가 갖고 있는 속성기능들을 상속받은 자식클래스는 추가없이 부모 클래스의 모든 것을 그대로 사용가능하고 원하는대로 변형할 수 있다.
-
- 
-
-부모 클래스의 생성자가 먼저 호출되고 자식 클래스의 생성자가 다음에 호출된다.
-
- 
-
-Stateful Widget은 내부에 State라는 또 다른 클래스를 갖고 있다.
-
- 
-
-Stateful Widget이 rebuild되는 경우
-
-Stateless Widget처럼 Child 위젯의 생성자를 통해서 데이터가 전달 때
-
-Internal state가 바뀔 때
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -2056,10 +1907,8 @@ class _MyAppState extends State<MyApp> {
 }
 
 }
+```  
 
- 
-
- 
-
-결과
+[ 결과] 
+![스크린샷 2023-09-08 233416](https://github.com/jiwon0629/FlutterStudy/assets/149983498/ef659131-caeb-4ffa-9efe-b1bc34ce17ed)
 
