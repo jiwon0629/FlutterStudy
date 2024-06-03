@@ -424,29 +424,9 @@ class MyHomePage extends StatelessWidget{
 ```  
 
 [ 결과 ]  
-![스크린샷 2023-08-20 154235](https://github.com/jiwon0629/FlutterStudy/assets/149983498/ae986db6-d628-4dec-add9-1fcbea83c1bc)
+![스크린샷 2023-08-20 154235](https://github.com/jiwon0629/FlutterStudy/assets/149983498/ae986db6-d628-4dec-add9-1fcbea83c1bc)  
 
-
-
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -550,21 +530,12 @@ class MyHomePage extends StatelessWidget{
 }
 
 }
-
+```  
  
+[ 결과 ]  
+![스크린샷 2023-08-20 223433](https://github.com/jiwon0629/FlutterStudy/assets/149983498/e36f4c37-08cd-4824-bc45-22b4815f2b6f)  
 
- 
-
-결과
-
-
-
- 
-
- 
-
- 
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -769,14 +740,13 @@ class MyHomePage extends StatelessWidget{
 
 //otherAccountsPictures : 현재 사용자의 이미지와는 다른 사용자의 이미지를 가져온다.
 
-//CircleAvatar : 원형 아바타(이미지)
-
+//CircleAvatar : 원형 아바타(이미지)  
+```  
  
+[ 결과 ]  
+![스크린샷 2023-08-20 231955](https://github.com/jiwon0629/FlutterStudy/assets/149983498/985247da-3451-4324-abfc-666bd677b637)  
 
-결과
-
-
-
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -870,10 +840,10 @@ class MyHomePage extends StatelessWidget{
 }
 
 }
+```
 
- 
-
-결과
+[ 결과 ]  
+![스크린샷 2023-08-21 160744](https://github.com/jiwon0629/FlutterStudy/assets/149983498/b046ae87-7885-47cb-9320-f027d5b75d85)
 
 
 
