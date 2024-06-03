@@ -79,7 +79,7 @@ children:[
 
 //elevation : 앱바와 위젯 사이의 높이 지정으로 그림자를 의미한다.
 ```
-[ 결과 ]
+[ 결과 ]  
  ![스크린샷 2023-08-20 154605](https://github.com/jiwon0629/FlutterStudy/assets/149983498/7fb55658-ba5c-422b-be20-855de3b41210)  
 
 
