@@ -1,17 +1,12 @@
 # FlutterStudy
 
-const 없애는 방법
+[ const 없애는 방법 ]
 
-pub spec.yaml - rules 안에
+pub spec.yaml - rules
+prefer_const_literals_to_create_immutables : false 추가  
 
-prefer_const_literals_to_create_immutables : false
-
-추가
-
-
-
-AppBar
-
+## AppBar
+```
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -83,8 +78,9 @@ children:[
 //Scaffold : 빈 도화지, 위젯에 배치시키기 위해 사용된다.
 
 //elevation : 앱바와 위젯 사이의 높이 지정으로 그림자를 의미한다.
+```
+ ![스크린샷 2023-08-20 154605](https://github.com/jiwon0629/FlutterStudy/assets/149983498/7fb55658-ba5c-422b-be20-855de3b41210)
 
- 
 
  
 
