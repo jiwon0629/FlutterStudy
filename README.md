@@ -1244,11 +1244,11 @@ class SecondPage extends StatelessWidget{
 }
 
 [ 화면 이동 전 결과 ]  
-![스크린샷 2023-08-22 214406](https://github.com/jiwon0629/FlutterStudy/assets/149983498/da44bee9-7af3-4752-94b3-639a834eba37)  
+
 
 
 [ 화면 이동 후 결과 ]
- ![스크린샷 2023-08-22 214425](https://github.com/jiwon0629/FlutterStudy/assets/149983498/03a1d9b9-1afc-4539-8529-d8585feb6631)  
+
 
 
 Map 자료구조  
@@ -1495,9 +1495,9 @@ class ThirdPage extends StatelessWidget{
 }
 ```   
 
-[ 결과 ]
-![스크린샷 2023-08-28 233433](https://github.com/jiwon0629/FlutterStudy/assets/149983498/0388efd6-2f4d-4dbf-8c7e-5aea8f444e4d)
-![스크린샷 2023-08-28 233635](https://github.com/jiwon0629/FlutterStudy/assets/149983498/ed7f7624-b3d1-4954-81f9-250b08a88daf)  
+[ 결과 1 ]
+
+[ 결과 2 ]  
 
 
 ```
@@ -1766,8 +1766,8 @@ class _ListViewPageState extends State<ListViewPage> {
 }
 ```  
 
-[ 결과 ]
-![스크린샷 2023-09-03 221355](https://github.com/jiwon0629/FlutterStudy/assets/149983498/750a22da-8106-4abe-82c7-69b10ea63008)  
+[ 결과 3 ]
+ 
 
 
 ## ListView VS ListView.builder  
@@ -1911,6 +1911,7 @@ class _MyAppState extends State<MyApp> {
 }
 ```  
 
-[ 결과] 
-![스크린샷 2023-09-08 233416](https://github.com/jiwon0629/FlutterStudy/assets/149983498/ef659131-caeb-4ffa-9efe-b1bc34ce17ed)
+[ 결과 4] 
+
+
 
