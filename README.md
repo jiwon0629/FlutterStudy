@@ -167,18 +167,15 @@ class MyHomePage extends StatelessWidget{
 ![스크린샷 2023-08-20 154915](https://github.com/jiwon0629/FlutterStudy/assets/149983498/a7fb30df-e709-45b1-a77b-c2b13a74d619)
 
 
+## 이미지 삽입 방법
 
+1. New Folder로 폴더 생성 후 폴더에 이미지 삽입  
 
- 
+2. pubspec.yaml에 들어가서 assets 부분 주석처리를 풀어준다.  
 
-이미지 삽입 방법
+3. 이미지 경로를 지정한 다음 저장한다.  
 
-1. New Folder로 폴더 생성 후 폴더에 이미지 삽입
-
-2. pubspec.yaml에 들어가서 assets 부분 주석처리를 풀어준다.
-
-3. 이미지 경로를 지정한 다음 저장한다.
-
+```  
 import 'package:flutter/material.dart';
 
 void main() =>runApp(MyApp());
@@ -423,13 +420,12 @@ class MyHomePage extends StatelessWidget{
 
 }
 
-}
+}  
+```  
 
- 
+[ 결과 ]  
+![스크린샷 2023-08-20 154235](https://github.com/jiwon0629/FlutterStudy/assets/149983498/ae986db6-d628-4dec-add9-1fcbea83c1bc)
 
- 
-
-결과
 
 
 
