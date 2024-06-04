@@ -532,26 +532,23 @@ class _CounterState extends State<Counter> {
 
 
 
-rules_version = '2';
-service cloud.firestore {
-//전체 데이터베이스에 포괄적으로 적용되는 리퀘스트
-  match /databases/{database}/documents {
-    
-    //match : 어떤 리퀘스트를 전달하고 어떤 리퀘스트에 적용될지 지정할 수 있다.
-    //match/chats{
-    //만약 auth request에 어떤 정보가 존재하면 즉, 사용자가 인증이 되면 데이터를 쓰고 읽을 수 있다.
-    	//allow read, write : if request.auth != null;
-      //create : 단순히 데이터를 생성하는 기능
-      
-   // }
-   
-    //{doucument=**} : 모든 다큐먼트의 접근을 가능하게 하겠다는 의미
-    match /{document=**} {
-    allow read, write : if request.auth != null;
-      //allow read, write: if request.time < timestamp.date(2023, 11, 12);
-    }
-  }
-}
+rules_version = '2';  
+service cloud.firestore {  
+//전체 데이터베이스에 포괄적으로 적용되는 리퀘스트  
+match /databases/{database}/documents {  
+    match : 어떤 리퀘스트를 전달하고 어떤 리퀘스트에 적용될지 지정할 수 있다.  
+    match/chats{  
+    //만약 auth request에 어떤 정보가 존재하면 즉, 사용자가 인증이 되면 데이터를 쓰고 읽을 수 있다.  
+    	allow read, write : if request.auth != null;  
+      create : 단순히 데이터를 생성하는 기능  
+    }  
+   {doucument=**} : 모든 다큐먼트의 접근을 가능하게 하겠다는 의미  
+    match /{document=**} {  
+    allow read, write : if request.auth != null;  
+      allow read, write: if request.time < timestamp.date(2023, 11, 12);  
+    }  
+  }  
+}  
 
 
 ## [ 채팅 앱 ]  
