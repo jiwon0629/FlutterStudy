@@ -214,9 +214,9 @@ class _otherState extends State<other> {
 
 [ 결과 ]  
 
-![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/74e49a5b-bd4c-4048-ba98-c4af0c4a9d46)
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/74e49a5b-bd4c-4048-ba98-c4af0c4a9d46)  
 
-
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/f659dd39-2270-450a-a2c6-c75774a8e1de)  
 
 
 final & const는 더이상 바뀌지 않는 것
@@ -229,13 +229,6 @@ const변수를 사용한다.
 2. final 변수는 런타임 시에 상수화
 3. Compile-time constant = Run-time constant(커스텀 변수로써 컴파일 시에 상수화가 된다는 것은 런타임 시에도 value 값이 절대로 변하지 않는 상수로써의 특징을 유지한다는 의미이다.)
 4. final 변수는 rebuild 될 수 있음(final 변수는 그 값이 변경되어야 한다면 rebuild 메소드 내에서 rebuild되어야 한다.)
-
-
-
-
-
-
-
 
 Duration 엑세스 데이터 함수의 실행을 내가 원하는 시간만큼 딜레이 시킨다.
 sleep은 Duration 함수의 Duration 변수를 인자값으로 받고있다.
@@ -285,16 +278,11 @@ var colors = ["red", "green", "blue", "orange", "pink"];
 print(colors.sublist(1, 3); // [green, blue]
 
 
-
-
-
-
 [후위 연산자]
 
 void main(){
 	int i = 1;
 	int j = i++;
-
 	print(j);
 } //증가되기 전의 값을 리턴한다. 결과는 1이다.
 
@@ -305,12 +293,9 @@ void main(){
 void main(){
 	int i = 1;
 	int j = ++i;
-
 	print(j);
 } //증가시킨 후의 값을 리턴한다. 결과는 2이다.
 
-
-//코딩셰프 - 조금 매운맛강좌 12
 Thread
 프로세스내에서 실행되는 흐름의 단위
 Process vs. Program
@@ -334,24 +319,13 @@ Future
 4. Synchronous 방식으로 실행되어야 할 코드 먼저 실행
 5. 최종적으로 실제적인 Data값이 Future 객체로 전달
 
-
-
-
-
-
-
-
 [Async method]
 1. 메서드를 통해서 나오는 결과들은 Future
 2. Await 키워드를 만날때까지 synchronous 방식으로 코드처리
 3. await 키워드를 만나면 future가 완료될 때까지 대기
 4. future가 완료되자마자 그 다음 코드들을 실행
 
-
-
-
-
-
+```  
 import 'package:flutter/material.dart';
 void main() {
  runApp(const MyApp());
@@ -427,27 +401,14 @@ class _HomeState extends State<Home> {
 });
 });
 }
-}
-//=========================================================
+}  
+```  
 
+[ 결과 ]  
 
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/00b96fc2-4010-4860-8a12-6bb795ca08dc)  
 
-
-
-
-
-
-
-
-
-
-결과화면
-
-
-
-
-
-
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/82868661-91dd-4d43-9c33-103318422c74)  
 
 
 Null safety
@@ -477,542 +438,6 @@ JSON VS XML
 XML : eXtensible Markup Language
 JSON : JavaScript Object Notation (키값과 value값을 1대1로 매핑시키는 구조)
 
-
-[날씨앱]
-
-main.dart
-
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/loading.dart';
-void main() {
- runApp(const MyApp());
-}
-class MyApp extends StatelessWidget{
- const MyApp({super.key});
- @override
- Widget build(BuildContext context) {
- return MaterialApp(
- debugShowCheckedModeBanner: false,
- title: 'Weather app',
- theme: ThemeData(primarySwatch: Colors.blue),
- home: const Loading(),
-);
-}
-}
-
-
-weather_screen.dart
-
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl/intl.dart';
-import 'package:timer_builder/timer_builder.dart';
-import 'package:flutter_application_1/model/model.dart';
-//import 'package:intl/intl_browser.dart';
-class WeatherScreen extends StatefulWidget{
- WeatherScreen({this.parseWeatherData, this.parseAirPollution});
- final parseWeatherData;
- final parseAirPollution;
- @override
- State<WeatherScreen> createState() => _WeatherScreenState();
-}
-class _WeatherScreenState extends State<WeatherScreen> {
- late Model model = Model();
- late String cityName;
- late int temp;
- late Widget icon;
- late String des;
- late Widget airIcon;
- late Widget airState;
- late double dust1;
- late double dust2;
- var date = DateTime.now();
- @override
- void initState() {
- // TODO: implement initState
- super.initState();
- updateData(widget.parseWeatherData, widget.parseAirPollution);
-}
- void updateData(dynamic weatherData, dynamic airData) {
- double temp2 = weatherData['main']['temp'];
- int condition = weatherData['weather'][0]['id'];
- des = weatherData['weather'][0]['description'];
- dust1 = airData['list'][0]['components']['pm10'];
- dust2 = airData['list'][0]['components']['pm2_5'];
- int index = airData['list'][0]['main']['aqi'];
- temp = temp2.round(); //round는 반올림
- cityName = weatherData['name'];
- icon = model.getWeatherIcon(condition)!;
- airIcon = model.getAirIcon(index)!;
- airState = model.getAirCondition(index)!;
- print(temp);
- print(cityName);
-}
- String getSystemTime() {
- var now = DateTime.now();
- return DateFormat("h:mm a").format(now);
-}
- @override
- Widget build(BuildContext context) {
- return Scaffold(
- backgroundColor: Colors.amber[800],
- appBar: AppBar(
- elevation: 0.0,
- backgroundColor: Colors.amber[800],
- leading: IconButton(
- icon: const Icon(Icons.near_me),
- onPressed:() {},
- iconSize: 30.0,
-),
- actions:[
- IconButton(
- onPressed:() {},
- icon: const Icon(
- Icons.location_searching,
-),
- iconSize: 30.0,
-),
-],
-),
- body: Container(
- child: Stack(
- children:[
- Container(
- padding: const EdgeInsets.all(20.0),
- child: Column(
- mainAxisAlignment: MainAxisAlignment.spaceBetween,
- children:[
- Expanded(
- //공간 확보
- child: Column(
- mainAxisAlignment: MainAxisAlignment.spaceBetween,
- crossAxisAlignment: CrossAxisAlignment.start,
- children:[
- Column(
- crossAxisAlignment: CrossAxisAlignment.start,
- children:[
- const SizedBox(
- height: 150.0,
-),
- Text(
- '$cityName',
- style: GoogleFonts.lato(
- fontSize: 35.0,
- fontWeight: FontWeight.bold,
- color: Colors.white),
-),
- Row(
- children:[
- TimerBuilder.periodic(
-(const Duration(minutes: 1)),
- builder:(context) {
- print('${getSystemTime()}');
- return Text(
- '${getSystemTime()}',
- style: GoogleFonts.lato(
- fontSize: 16.0, color: Colors.white),
-);
-},
-),
- Text(
- DateFormat(' - EEEE, ').format(date),
- style: GoogleFonts.lato(
- fontSize: 16.0, color: Colors.white),
-),
- Text(
- DateFormat('d MMM, yyy').format(date),
- style: GoogleFonts.lato(
- fontSize: 16.0, color: Colors.white),
-),
-],
-)
-],
-),
- Column(
- crossAxisAlignment: CrossAxisAlignment.start,
- children:[
- Text(
- '$temp\u2103',
- style: GoogleFonts.lato(
- fontSize: 85.0,
- fontWeight: FontWeight.w300,
- color: Colors.white),
-),
- Row(
- children:[
- icon,
- Text(
- '$des',
- style: GoogleFonts.lato(
- fontSize: 16.0, color: Colors.white),
-),
-],
-)
-],
-)
-],
-),
-),
- Column(
- children:[
- Divider(
- height: 15.0,
- thickness: 2.0,
- color: Colors.white30,
-),
- Row(
- mainAxisAlignment: MainAxisAlignment.spaceBetween,
- children:[
- Column(
- children:[
- Text(
- 'AQI(대기질지수)',
- style: GoogleFonts.lato(
- fontSize: 14.0, color: Colors.white),
-),
- SizedBox(
- height: 10.0,
-),
- airIcon,
- SizedBox(
- height: 10.0,
-),
- airState,
-],
-),
- Column(
- children:[
- Text(
- '미세먼지',
- style: GoogleFonts.lato(
- fontSize: 14.0, color: Colors.white),
-),
- SizedBox(
- height: 10.0,
-),
- Text(
- '$dust1',
- style: GoogleFonts.lato(
- fontSize: 24.0,
- color: Colors.white,
-),
-),
- SizedBox(
- height: 10.0,
-),
- Text(
- 'μg/m3',
- style: GoogleFonts.lato(
- fontSize: 14.0,
- color: Colors.white,
- fontWeight: FontWeight.bold),
-),
-],
-),
- Column(
- children:[
- Text(
- '초미세먼지',
- style: GoogleFonts.lato(
- fontSize: 14.0, color: Colors.white),
-),
- SizedBox(
- height: 10.0,
-),
- Text(
- '$dust2',
- style: GoogleFonts.lato(
- fontSize: 24.0,
- color: Colors.white,
-),
-),
- SizedBox(
- height: 10.0,
-),
- Text(
- 'μg/m3',
- style: GoogleFonts.lato(
- fontSize: 14.0,
- color: Colors.white,
- fontWeight: FontWeight.bold),
-),
-],
-),
-],
-),
-],
-)
-],
-),
-),
-],
-),
-),
-);
-}
-}
-
-
-
-
-
-
-
-
-
-model.dart
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/material.dart';
-class Model{
- //메소드의 타입이 Widget인 이유는 각 날씨의 상태를 수치화해서 그 수치에 맞는 이미지 파일을 불러와야 하기 때문이다.
- Widget? getWeatherIcon(int conditon) {
- if(conditon < 300) {
- return SvgPicture.asset(
- 'svg/Cloud-Lightning.svg',
- color: Colors.black87,
-);
-else if(conditon < 600) {
- return SvgPicture.asset(
- 'svg/Cloud-Snow-Alt.svg',
- color: Colors.black87,
-);
-else if(conditon == 800) {
- return SvgPicture.asset(
- 'svg/Sun.svg',
- color: Colors.black87,
-);
-else if(conditon <= 804) {
- return SvgPicture.asset(
- 'svg/Cloud-Sun.svg',
- color: Colors.black87,
-);
-}
- return null;
-}
- Widget? getAirIcon(int index) {
- if(index == 1) {
- return Image.asset(
- 'image/good.png',
- width: 37.0,
- height: 35.0,
-);
-else if(index == 2) {
- return Image.asset(
- 'image/fair.png',
- width: 37.0,
- height: 35.0,
-);
-else if(index == 3) {
- return Image.asset(
- 'image/moderate.png',
- width: 37.0,
- height: 35.0,
-);
-else if(index == 4) {
- return Image.asset(
- 'image/poor.png',
- width: 37.0,
- height: 35.0,
-);
-else if(index == 5) {
- return Image.asset(
- 'image/bad.png',
- width: 37.0,
- height: 35.0,
-);
-}
- return null;
-}
- Widget? getAirCondition(int index) {
- if(index == 1) {
- return Text(
- '"매우좋음"',
- style: TextStyle(
- color: Colors.indigo,
- fontWeight: FontWeight.bold,
-),
-);
-else if(index == 2) {
- return Text(
- '"좋음"',
- style: TextStyle(
- color: Colors.indigo,
- fontWeight: FontWeight.bold,
-),
-);
-else if(index == 3) {
- return Text(
- '"보통"',
- style: TextStyle(
- color: Colors.black87,
- fontWeight: FontWeight.bold,
-),
-);
-else if(index == 4) {
- return Text(
- '"나쁨"',
- style: TextStyle(
- color: Colors.black87,
- fontWeight: FontWeight.bold,
-),
-);
-else if(index == 5) {
- return Text(
- '"매우나쁨"',
- style: TextStyle(
- color: Colors.black87,
- fontWeight: FontWeight.bold,
-),
-);
-}
- return null;
-}
-}
-
-network.dart
-
-import 'package:http/http.dart' as http;
-import 'dart:convert'; //jsonDecode를 사용할 수 있음
-class Network{
- final String url;
- final String url2;
- Network(this.url, this.url2);
- Future<dynamic> getJsonData() async{
- //날씨 데이터 타입은 다양하기 때문에 dynamic
- //json parshing
- final response = await http.get(Uri.parse(url));
- if(response.statusCode == 200) {
- String jsonData = response.body;
- //jsonDecode의 타입은 dynamic type이므로 값을 변수에 담으려면 var을 사용해야한다.
- var parshingData = jsonDecode(jsonData);
- return parshingData;
-}
-}
- Future<dynamic> getAirData() async{
- //날씨 데이터 타입은 다양하기 때문에 dynamic
- //json parshing
- final response = await http.get(Uri.parse(url2));
- if(response.statusCode == 200) {
- String jsonData = response.body;
- //jsonDecode의 타입은 dynamic type이므로 값을 변수에 담으려면 var을 사용해야한다.
- var parshingData = jsonDecode(jsonData);
- return parshingData;
-}
-}
-}
-
-
-
-
-
-
-
-
-
-loading.dart
-
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/data/my_location.dart';
-import 'package:flutter_application_1/data/network.dart';
-import 'package:flutter_application_1/screens/weather_screen.dart';
-const apikey = '9a882db6a1591f35fd544a33542ce127';
-//info.plist, pubspec.yaml, menifest
-class Loading extends StatefulWidget{
- const Loading({super.key});
- @override
- State<Loading> createState() => _LoadingState();
-}
-class _LoadingState extends State<Loading> {
- late double latitude3;
- late double longitude3;
- @override
- void initState() {
- //TODO: implement initState
- super.initState();
- getLocation();
-}
- void getLocation() async{
- //LocationPermission permission = await Geolocator.requestPermission();
- MyLocation myLocation = MyLocation();
- //await는 Future의 값이 return될 때까지 기다려야 한다는 의미이다.
- //위도와 경도 값이 포지션 변수에 할당 될 때까지 기다리기 위해서 await를 사용한다.
- await myLocation.getMyCurrentLocation(); //getMyCurrentLocation메소드를 기다림
- latitude3 = myLocation.latitude2;
- longitude3 = myLocation.longitude2;
- print(latitude3);
- print(longitude3);
- Network network = Network(
- //'https://samples.openweathermap.org/data/2.5/weather?q=London&appid=b1b15e88fa797225412429c1c50c122a1');
- 'https://api.openweathermap.org/data/2.5/weather?lat=$latitude3&lon=$longitude3&appid=$apikey&units=metric',
- 'http://api.openweathermap.org/data/2.5/air_pollution?lat=$latitude3&lon=$longitude3&appid=$apikey');
- var weatherData =
- await network.getJsonData(); //parshing 데이터를 return해주고 있기 때문에 await
- print(weatherData);
- var airData = await network.getAirData();
- print(airData);
- //weather_screen 페이지로 이동 시 weatherData, airData에 담긴 데이터들이 동시에 전달된다.
- Navigator.push(context, MaterialPageRoute(builder:(context) {
- return WeatherScreen(
- parseWeatherData: weatherData,
- parseAirPollution: airData,
-);
-}));
-}
- // Future<void> fetchData() async {
- // var myJson = parshingData['weather'][0]['description'];
- // print(myJson);
- // var wind = parshingData['wind']['speed'];
- // print(wind);
- // var id = parshingData['id'];
- // print(id);
- // } else {
- // print(response.statusCode);
- // }
- // }
- @override
- Widget build(BuildContext context) {
- return const Scaffold(
- body: Center(
- child: ElevatedButton(
- onPressed: null,
- child: Text(
- 'Get my location',
- style: TextStyle(color: Colors.white),
-),
-),
-));
-}
-}
-
-my_location.dart
-
-import 'package:geolocator/geolocator.dart'; //날씨 앱
-class MyLocation{
- late double latitude2;
- late double longitude2;
- Future<void> getMyCurrentLocation() async{
- //await가 있으면 async가 있어야 함
- try{
- //Geolocator 패키지를 사용해서 위도와 경도 값을 position 변수에 전달하게 된다.
- //이를 위해서 await를 사용해서 async 방식으로 메소드가 동작하게 된다.
- Position position = await Geolocator.getCurrentPosition(
- desiredAccuracy: LocationAccuracy.high);
- latitude2 = position.latitude;
- longitude2 = position.longitude;
- print(latitude2);
- print(longitude2);
-catch(e) {
- print('There was a problem with the internet connection.');
-}
-}
-}
-
-결과화면[수정된 부분도 있지만 그건 flutter_application_1에서 확인해보기]
-
-
 [Keys]
 1. 위젯의 State를 보존
 2. 위젯이나 요소들을 유니크하게 식별
@@ -1030,6 +455,7 @@ ex) id, pwd에서 입력한 값
 Global Key
 전역변수(Global Variable)란 메소드의 외부에서 선언된 변수이고 여러 개의 메소드에서 동시에 사용될 수 있어야 하기 때문에 프로그램 어디에서나 접근을 할 수 있는 변수이다.
 
+```  
 import 'package:flutter/material.dart';
 void main() {
  runApp(const MyApp());
@@ -1091,25 +517,18 @@ class _CounterState extends State<Counter> {
 ),
 );
 }
-}
+}  
+```
 
-[결과화면]
+[결과화면]  
 
-[Stream]
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/96d1fb27-6b31-4094-81dd-6500fd27df4a)  
 
 
-즉시 사용가능 
-기다려야 사용가능
-단일 데이터
-ex) String, int, double
-ex) int
-ex) Future<int>(async방식)
-전달이 되면 그 즉시 사용할 수 있는 데이터
-복수 데이터
-ex) List
-ex) List<int>
-ex) Stream<int>
-int 데이터가 언제라도 스트림에 전달될 수 있으며 구독하고 있는 한 스트림에 데이터가 전달될 때마다 즉시 알 수 있게 된다.
+[Stream]  
+
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/7e078f0d-fd48-4639-8ba9-1d93959ca519)  
+
 
 
 
@@ -1135,23 +554,11 @@ service cloud.firestore {
 }
 
 
+## [ 채팅 앱 ]  
 
+### main.dart  
 
-
-
-
-
-
-
-
-
-
-
-
-[채팅앱]
-
-main.dart
-
+```  
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screens/chat_screen.dart';
 import 'package:flutter_application_2/screens/main_screen.dart';
@@ -1182,8 +589,11 @@ class MyApp extends StatelessWidget{
 );
 }
 }
-palette.dart
+```
 
+### palette.dart  
+
+```
 import 'package:flutter/painting.dart';
 class Palette{
  static const Color iconColor = Color(0xFFB6C7D1);
@@ -1193,12 +603,12 @@ class Palette{
  static const Color facebookColor = Color(0xFF3B5999);
  static const Color googleColor = Color(0xFFDE4B39);
  static const Color backgroundColor = Color(0xFFECF3F9);
-}
+}  
+```  
 
+### main_screen.dart
 
-main_screen.dart
-
-
+```  
 import 'package:flutter/material.dart';
 //import 'package:flutter_application_2/add_image/add_image.dart';
 import 'package:flutter_application_2/config/palette.dart';
@@ -1822,16 +1232,13 @@ catch(e) {
 ),
 );
 }
-}
+}  
+```  
 
 
+### add_image.dart  
 
-
-
-
-
-add_image.dart
-
+```  
 import 'package:flutter/material.dart';
 class AddImage extends StatefulWidget{
  const AddImage({super.key});
@@ -1874,14 +1281,11 @@ class _AddImageState extends State<AddImage> {
 );
 }
 }
+```  
 
+### chat_screen.dart  
 
-
-
-
-
-chat_screen.dart
-
+```  
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
@@ -1942,9 +1346,11 @@ catch(e) {
 ));
 }
 }
+```  
 
-new_message.dart
+### new_message.dart  
 
+```  
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -2001,9 +1407,11 @@ class _NewMessageState extends State<NewMessage> {
 );
 }
 }
+```  
 
-message.dart
+### message.dart  
 
+```  
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_2/chatting/chat/chat_bubble.dart';
@@ -2040,9 +1448,11 @@ class Messages extends StatelessWidget{
 );
 }
 }
+```  
 
-chat_bubble.dart
+### chat_bubble.dart  
 
+```  
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
@@ -2127,9 +1537,13 @@ class ChatBubbles extends StatelessWidget{
 ],
 );
 }
-}
+}  
+```  
 
-[결과화면]
+[ 결과 ]  
+
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/6ea29669-f6d2-4857-aa4f-ccf3c1e20709)  
+
 
 
 
@@ -2158,11 +1572,12 @@ State management 정의
 보기 -> 명령 팔레트
 
 const를 없애려면
-analysis_options.yaml -> # include: package:flutter_lints/flutter.yaml
+analysis_options.yaml -> # include: package:flutter_lints/flutter.yaml  
 
 
-main.dart
+### main.dart  
 
+```  
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/fish_model.dart';
 import 'package:provider/provider.dart';
@@ -2353,40 +1768,23 @@ class SpicyC extends StatelessWidget{
 );
 }
 }
+```
 
-fish_model.dart
 
+### fish_model.dart  
+
+```  
 class FishModel{
  final String name;
  final int number;
  final String size;
  FishModel({required this.name, required this.number, required this.size});
 }
+```  
 
+[ 결과 ]  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[결과화면]
-
-
-
-
-
+![image](https://github.com/jiwon0629/FlutterStudy/assets/149983498/d3db0854-3373-4199-bc25-67e57c8ccba9)  
 
 ChangeNotifier의 한계
 1. 매번 수동으로 addListener를 등록해 주어야 함
@@ -2399,29 +1797,7 @@ ChangeNotifierProvider의 장점
 2. 자동으로 필요 없는 ChangeNotifier 제거
 3. Provider.of를 통해서 위젯들이 쉽게 ChangeNotifier인스턴스에 접근할 수 있게 해줌
 4. 필요시 UI를 리빌드 시켜줄 수 있음
-5. 굳이 UI를 리빌드 할 필요가 없는 위젯을 위해서 listen: false 기능 제공
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+5. 굳이 UI를 리빌드 할 필요가 없는 위젯을 위해서 listen: false 기능 제공  
 
 
 
